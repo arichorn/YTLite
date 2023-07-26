@@ -287,7 +287,7 @@
 - (void *)init {
     void *ret = (void *)%orig;
     if (kExtraSpeedOptions) {
-        NSArray *speedOptions = @[@"0.1x", @"0.25x", @"0.5x", @"0.75x", @"1x", @"1.25x", @"1.5x", @"1.75x", @"2x", @"2.5x", @"3x", @"3.5x", @"4x", @"5x"];
+        NSArray *speedOptions = @[@"0.1x", @"0.25x", @"0.5x", @"0.75x", @"1x", @"1.25x", @"1.5x", @"1.75x", @"2x", @"2.5x", @"3x", @"3.25x", @"3.5x", @"3.75x", @"4x", @"5x"];
         NSMutableArray *speedOptionsCopy = [NSMutableArray new];
 
         for (NSString *title in speedOptions) {
