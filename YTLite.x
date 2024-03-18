@@ -231,19 +231,17 @@ static UIImage *YTImageNamed(NSString *imageName) {
 
 // Hide Fullscreen Button
 %hook YTInlinePlayerBarContainerView
-- (void)layoutSubviews {
-    %orig;
+- (BOOL)canShowFullscreenButton {
     if (kNoFullscreenButton) {
-        if (self.exitFullscreenButton) {
-            [self.exitFullscreenButton removeFromSuperview];
-            self.exitFullscreenButton.frame = CGRectZero;
-        }
-        if (self.enterFullscreenButton) {
-            [self.enterFullscreenButton removeFromSuperview];
-            self.enterFullscreenButton.frame = CGRectZero;
-        }
-//      self.fullscreenButtonDisabled = YES;
-    }
+        return NO;
+    }  
+    return %orig;
+}
+- (BOOL)fullscreenButtonDisabled {
+    if (kNoFullscreenButton) {
+        return YES;
+    } 
+    return %orig;
 }
 %end
 
